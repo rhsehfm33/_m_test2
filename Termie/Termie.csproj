@@ -77,11 +77,11 @@
     <Compile Include="Code\1_Form\SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Code\1_Form\ZedGraph.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Code\2_Defaults\CommPort.cs" />
     <Compile Include="Code\2_Defaults\Packet.cs" />
+    <Compile Include="Code\Graph\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sample_Design\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

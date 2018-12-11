@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.colBreath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRPMLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRPMRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SettingButton = new System.Windows.Forms.Button();
@@ -46,25 +52,33 @@
             this.btnLogStart = new System.Windows.Forms.Button();
             this.LogPathBox = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.StopButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.PressureGraph = new ZedGraph.ZedGraphControl();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.RPMGraph = new ZedGraph.ZedGraphControl();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BreathGraph = new ZedGraph.ZedGraphControl();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ChartBreath = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ChartRPM = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ChartPressure = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ColTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBreath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRPMLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRPMRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartBreath)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartRPM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPressure)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -81,40 +95,25 @@
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColTime,
             this.colBreath,
             this.colPressure,
             this.colRPMLeft,
             this.colRPMRight});
-            this.dataGridView.Location = new System.Drawing.Point(970, 121);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView.Location = new System.Drawing.Point(980, 121);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 23;
-            this.dataGridView.Size = new System.Drawing.Size(262, 702);
+            this.dataGridView.Size = new System.Drawing.Size(358, 702);
             this.dataGridView.TabIndex = 15;
-            // 
-            // colBreath
-            // 
-            this.colBreath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colBreath.HeaderText = "Breath";
-            this.colBreath.Name = "colBreath";
-            // 
-            // colPressure
-            // 
-            this.colPressure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPressure.HeaderText = "Pressure";
-            this.colPressure.Name = "colPressure";
-            // 
-            // colRPMLeft
-            // 
-            this.colRPMLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRPMLeft.HeaderText = "LRPM";
-            this.colRPMLeft.Name = "colRPMLeft";
-            // 
-            // colRPMRight
-            // 
-            this.colRPMRight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRPMRight.HeaderText = "RRPM";
-            this.colRPMRight.Name = "colRPMRight";
             // 
             // label1
             // 
@@ -138,7 +137,7 @@
             // 
             // SettingButton
             // 
-            this.SettingButton.Location = new System.Drawing.Point(1072, 44);
+            this.SettingButton.Location = new System.Drawing.Point(1187, 46);
             this.SettingButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SettingButton.Name = "SettingButton";
             this.SettingButton.Size = new System.Drawing.Size(127, 34);
@@ -165,13 +164,13 @@
             this.groupBox4.Controls.Add(this.textBox1);
             this.groupBox4.Controls.Add(this.SettingButton);
             this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.StopButton);
+            this.groupBox4.Controls.Add(this.ResetButton);
             this.groupBox4.Controls.Add(this.StartButton);
             this.groupBox4.Location = new System.Drawing.Point(14, 15);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(1218, 99);
+            this.groupBox4.Size = new System.Drawing.Size(1320, 99);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Measurement Control";
@@ -196,14 +195,14 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(656, 61);
+            this.groupBox6.Size = new System.Drawing.Size(772, 61);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Data Logging";
             // 
             // btnLogStop
             // 
-            this.btnLogStop.Location = new System.Drawing.Point(578, 21);
+            this.btnLogStop.Location = new System.Drawing.Point(707, 22);
             this.btnLogStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogStop.Name = "btnLogStop";
             this.btnLogStop.Size = new System.Drawing.Size(59, 29);
@@ -214,7 +213,7 @@
             // 
             // btnLogStart
             // 
-            this.btnLogStart.Location = new System.Drawing.Point(512, 21);
+            this.btnLogStart.Location = new System.Drawing.Point(642, 22);
             this.btnLogStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogStart.Name = "btnLogStart";
             this.btnLogStart.Size = new System.Drawing.Size(59, 29);
@@ -228,7 +227,7 @@
             this.LogPathBox.Location = new System.Drawing.Point(62, 24);
             this.LogPathBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LogPathBox.Name = "LogPathBox";
-            this.LogPathBox.Size = new System.Drawing.Size(443, 25);
+            this.LogPathBox.Size = new System.Drawing.Size(574, 25);
             this.LogPathBox.TabIndex = 0;
             this.LogPathBox.Text = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE";
             // 
@@ -243,27 +242,62 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.btnLogPath_Click);
             // 
-            // StopButton
+            // ResetButton
             // 
-            this.StopButton.Enabled = false;
-            this.StopButton.Location = new System.Drawing.Point(83, 29);
-            this.StopButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(63, 50);
-            this.StopButton.TabIndex = 2;
-            this.StopButton.Text = "Stop";
-            this.StopButton.UseVisualStyleBackColor = true;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            this.ResetButton.Enabled = false;
+            this.ResetButton.Location = new System.Drawing.Point(83, 29);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(63, 50);
+            this.ResetButton.TabIndex = 2;
+            this.ResetButton.Text = "Stop";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
-            // label6
+            // groupBox2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(77, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 30);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "7.890";
+            this.groupBox2.Controls.Add(this.ChartRPM);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Location = new System.Drawing.Point(14, 479);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(960, 175);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.ChartPressure);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Location = new System.Drawing.Point(14, 652);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(960, 175);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.ChartBreath);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(14, 106);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(960, 375);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
             // 
             // label7
             // 
@@ -276,15 +310,15 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Pressure";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(94, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 30);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "123";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(77, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 30);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "7.890";
             // 
             // label5
             // 
@@ -297,76 +331,15 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "RPM";
             // 
-            // groupBox3
+            // label4
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.PressureGraph);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(14, 652);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(949, 175);
-            this.groupBox3.TabIndex = 13;
-            this.groupBox3.TabStop = false;
-            // 
-            // PressureGraph
-            // 
-            this.PressureGraph.BackColor = System.Drawing.Color.Maroon;
-            this.PressureGraph.Location = new System.Drawing.Point(178, 16);
-            this.PressureGraph.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.PressureGraph.Name = "PressureGraph";
-            this.PressureGraph.ScrollGrace = 0D;
-            this.PressureGraph.ScrollMaxX = 0D;
-            this.PressureGraph.ScrollMaxY = 0D;
-            this.PressureGraph.ScrollMaxY2 = 0D;
-            this.PressureGraph.ScrollMinX = 0D;
-            this.PressureGraph.ScrollMinY = 0D;
-            this.PressureGraph.ScrollMinY2 = 0D;
-            this.PressureGraph.Size = new System.Drawing.Size(763, 155);
-            this.PressureGraph.TabIndex = 16;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.RPMGraph);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(14, 479);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(949, 175);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            // 
-            // RPMGraph
-            // 
-            this.RPMGraph.BackColor = System.Drawing.Color.Maroon;
-            this.RPMGraph.Location = new System.Drawing.Point(178, 15);
-            this.RPMGraph.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.RPMGraph.Name = "RPMGraph";
-            this.RPMGraph.ScrollGrace = 0D;
-            this.RPMGraph.ScrollMaxX = 0D;
-            this.RPMGraph.ScrollMaxY = 0D;
-            this.RPMGraph.ScrollMaxY2 = 0D;
-            this.RPMGraph.ScrollMinX = 0D;
-            this.RPMGraph.ScrollMinY = 0D;
-            this.RPMGraph.ScrollMinY2 = 0D;
-            this.RPMGraph.Size = new System.Drawing.Size(763, 155);
-            this.RPMGraph.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(70, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 30);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "3.456";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(94, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 30);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "123";
             // 
             // label2
             // 
@@ -379,44 +352,109 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Breath";
             // 
-            // groupBox1
+            // label3
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.BreathGraph);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(14, 106);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(949, 375);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(70, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 30);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "3.456";
             // 
-            // BreathGraph
+            // ChartBreath
             // 
-            this.BreathGraph.BackColor = System.Drawing.Color.Maroon;
-            this.BreathGraph.Location = new System.Drawing.Point(178, 18);
-            this.BreathGraph.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.BreathGraph.Name = "BreathGraph";
-            this.BreathGraph.ScrollGrace = 0D;
-            this.BreathGraph.ScrollMaxX = 0D;
-            this.BreathGraph.ScrollMaxY = 0D;
-            this.BreathGraph.ScrollMaxY2 = 0D;
-            this.BreathGraph.ScrollMinX = 0D;
-            this.BreathGraph.ScrollMinY = 0D;
-            this.BreathGraph.ScrollMinY2 = 0D;
-            this.BreathGraph.Size = new System.Drawing.Size(763, 354);
-            this.BreathGraph.TabIndex = 13;
+            chartArea3.Name = "ChartAreaBreath";
+            this.ChartBreath.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.ChartBreath.Legends.Add(legend3);
+            this.ChartBreath.Location = new System.Drawing.Point(167, 25);
+            this.ChartBreath.Name = "ChartBreath";
+            this.ChartBreath.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series4.ChartArea = "ChartAreaBreath";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Breath";
+            this.ChartBreath.Series.Add(series4);
+            this.ChartBreath.Size = new System.Drawing.Size(776, 350);
+            this.ChartBreath.TabIndex = 13;
+            this.ChartBreath.Text = "Breath";
+            // 
+            // ChartRPM
+            // 
+            chartArea1.Name = "ChartAreaRPM";
+            this.ChartRPM.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.ChartRPM.Legends.Add(legend1);
+            this.ChartRPM.Location = new System.Drawing.Point(167, 21);
+            this.ChartRPM.Name = "ChartRPM";
+            series1.ChartArea = "ChartAreaRPM";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "LRPM";
+            series2.ChartArea = "ChartAreaRPM";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "RRPM";
+            this.ChartRPM.Series.Add(series1);
+            this.ChartRPM.Series.Add(series2);
+            this.ChartRPM.Size = new System.Drawing.Size(776, 154);
+            this.ChartRPM.TabIndex = 15;
+            this.ChartRPM.Text = "RPMs";
+            // 
+            // ChartPressure
+            // 
+            chartArea2.Name = "ChartAreaPressure";
+            this.ChartPressure.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.ChartPressure.Legends.Add(legend2);
+            this.ChartPressure.Location = new System.Drawing.Point(167, 25);
+            this.ChartPressure.Name = "ChartPressure";
+            series3.ChartArea = "ChartAreaPressure";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "Pressure";
+            this.ChartPressure.Series.Add(series3);
+            this.ChartPressure.Size = new System.Drawing.Size(776, 143);
+            this.ChartPressure.TabIndex = 15;
+            this.ChartPressure.Text = "Pressure";
+            // 
+            // ColTime
+            // 
+            this.ColTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColTime.HeaderText = "Time(sec)";
+            this.ColTime.Name = "ColTime";
+            // 
+            // colBreath
+            // 
+            this.colBreath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colBreath.HeaderText = "Breath";
+            this.colBreath.Name = "colBreath";
+            // 
+            // colPressure
+            // 
+            this.colPressure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPressure.HeaderText = "Pressure";
+            this.colPressure.Name = "colPressure";
+            // 
+            // colRPMLeft
+            // 
+            this.colRPMLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colRPMLeft.HeaderText = "LRPM";
+            this.colRPMLeft.Name = "colRPMLeft";
+            // 
+            // colRPMRight
+            // 
+            this.colRPMRight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colRPMRight.HeaderText = "RRPM";
+            this.colRPMRight.Name = "colRPMRight";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1240, 841);
+            this.ClientSize = new System.Drawing.Size(1346, 841);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -431,12 +469,15 @@
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartBreath)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartRPM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartPressure)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,22 +493,23 @@
         private System.Windows.Forms.Button btnLogStart;
         private System.Windows.Forms.TextBox LogPathBox;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button StopButton;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button btnLogStop;
 
         private System.Windows.Forms.ComboBox IntervalComboBox;
-        private ZedGraph.ZedGraphControl BreathGraph;
-        private ZedGraph.ZedGraphControl PressureGraph;
-        private ZedGraph.ZedGraphControl RPMGraph;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartRPM;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartPressure;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartBreath;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBreath;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPressure;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRPMLeft;

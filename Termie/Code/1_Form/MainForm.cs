@@ -16,6 +16,7 @@ namespace Termie
 {
     public partial class MainForm : Form
     {
+        public Stopwatch _stopWatch;
         #region Variable
         Stopwatch m_sw;
         Stopwatch m_sw2;
@@ -39,10 +40,14 @@ namespace Termie
             com.DataReceived += OnDataReceived;
             com.Open();
 
-            int[] Interval = { 1, 10, 100, 200, 1000, 0 };
-            for (int i = 0; Interval[i] != 0; ++i)
-                IntervalComboBox.Items.Add(Interval[i].ToString());
-            IntervalComboBox.SelectedIndex = 1;
+            InitializeGraph();
+
+            _stopWatch = new Stopwatch();
+
+            //int[] Interval = { 1, 10, 100, 200, 1000, 0 };
+            //for (int i = 0; Interval[i] != 0; ++i)
+            //    IntervalComboBox.Items.Add(Interval[i].ToString());
+            //IntervalComboBox.SelectedIndex = 1;
 
             // stopwatch
             m_sw = new Stopwatch();
@@ -52,7 +57,6 @@ namespace Termie
             m_sw2.Reset();
             m_sw2.Start();
 
-            InitializeGraph();
         }
 
         // shutdown the worker thread when the form closes
@@ -79,30 +83,25 @@ namespace Termie
         /// <param name="data">incoming data</param>
         /// 
         bool b_check = false;
-        public void OnDataReceived(RealPacket dataIn)
+        public void OnDataReceived(RealPacket packet)
         {
+            float ftime = _stopWatch.ElapsedMilliseconds / 1000.0f;
             //Handle multi-threading
             if (InvokeRequired)
             {
-                Invoke(new PacketDelegate(OnDataReceived), new object[] { dataIn });
+                Invoke(new PacketDelegate(OnDataReceived), new object[] { packet });
                 return;
             }
 
-            // Read Data
-            //DrawGraph(dataIn);          // 그래프는 대기
+            
             if (m_sw2.ElapsedMilliseconds > 200)
             {
+                DrawGraph(packet, ftime);
                 m_sw2.Restart();
-                drawzed(dataIn);
-
-                BreathGraph.Invalidate();
-                PressureGraph.Invalidate();
-                RPMGraph.Invalidate();
-                dataGridView.Invalidate();
             }
             if (_bLogging)
             {
-                DrawGrid(dataIn);
+                DrawGrid(packet, ftime);
             }
         }
 
@@ -185,39 +184,44 @@ namespace Termie
         }
         #endregion
 
-        #region Graph Control
-        public void DrawGraph(Packet packet)
-        {
-            float fTime = (float)m_sw.ElapsedMilliseconds / 1000.0F;
-            Random r = new Random();
-        }
-        #endregion
-
-        #region Ghong
-
         #region Button
+        bool btnStart = false;
         private void StartButton_Click(object sender, EventArgs e)
         {
+            _stopWatch.Start();
             CommPort com = CommPort.Instance;
+            if (!btnStart)
+                btnStart = true;
+            else
+            {
+                btnStart = false;
+            }
             if (!com.IsRunning())
             {
-                ResetGraph();
                 com.Button_Click();
-                StartButton.Enabled = false;
-                StopButton.Enabled = true;
+                ResetButton.Enabled = true;
                 // BreathGraph.GraphPane.XAxis.Scale.MinAuto = true;
+            }
+            else
+            {
+                StartButton.Enabled = true;
+                _stopWatch.Stop();
             }
 
         }
 
         private void StopButton_Click(object sender, EventArgs e)
         {
+            _stopWatch.Restart();
+            _stopWatch.Stop();
+            ResetGraph();
+
             CommPort com = CommPort.Instance;
             if (com.IsRunning())
             {
                 com.Button_Click();
                 StartButton.Enabled = true;
-                StopButton.Enabled = false;
+                ResetButton.Enabled = false;
                 m_sw.Restart();
             }
         }
@@ -229,7 +233,6 @@ namespace Termie
         }
         #endregion
 
-        #endregion
 
         #region MinSeong        // 수정 필요.
         private void btnLogStart_Click(object sender, EventArgs e)
@@ -241,10 +244,10 @@ namespace Termie
                 btnLogStart.Text = "Start";
         }
 
-        public void DrawGrid(RealPacket packet)
+        public void DrawGrid(RealPacket packet, float ftime)
         {
             //float fTime = (float)m_sw.ElapsedMilliseconds / 1000.0F;
-            dataGridView.Rows.Add(packet.breath, packet.pressure, packet.LRPM, packet.RRPM);
+            dataGridView.Rows.Add(ftime, packet.breath, packet.pressure, packet.LRPM, packet.RRPM);
             dataGridView.FirstDisplayedScrollingRowIndex = dataGridView.RowCount - 1;
 
         }
