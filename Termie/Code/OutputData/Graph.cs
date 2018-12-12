@@ -13,6 +13,7 @@ using System.Diagnostics;
 using ZedGraph;
 using System.Linq;
 using System.Windows.Forms.DataVisualization.Charting;
+using Axis = System.Windows.Forms.DataVisualization.Charting.Axis;
 
 namespace Termie
 {
@@ -32,10 +33,11 @@ namespace Termie
         {
             if (ftime < scrollSize)
                 return;
+            chartArea.AxisX.Maximum = ftime;
+            chartArea.AxisX.ScaleView.Position = ftime- scrollSize;
             chartArea.AxisX.RoundAxisValues();
-            chartArea.AxisX.Maximum = Math.Ceiling(ftime);
+
             //chartArea.AxisX.Minimum = Math.Ceiling(ftime) - scrollSize;
-            chartArea.AxisX.ScaleView.Position = Math.Ceiling(ftime)- scrollSize;
             //chartArea.AxisX.IntervalOffset = 0;
             //chartArea.AxisX.RoundAxisValues();
         }
@@ -45,16 +47,31 @@ namespace Termie
             ScrollBarMove(ChartRPM.ChartAreas[RPM], ftime);
             ScrollBarMove(ChartPressure.ChartAreas[Pressure], ftime);
         }
+        public void AxisXIntervalSet(Axis axisX)
+        {
+            axisX.Interval = 1;
+            axisX.MajorGrid.Enabled = true;
+            axisX.MajorGrid.LineColor = Color.DimGray;
+            axisX.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
+
+            axisX.MinorGrid.Enabled = true;
+            axisX.MinorGrid.LineColor = Color.Gray;
+            axisX.MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+            //axisX.MinorGrid.IntervalOffset = 0;
+            axisX.MinorGrid.Interval = 0.25;
+            
+        }
         public void ScrollBarInit(ChartArea chartArea)
         {
             chartArea.AxisX.ScaleView.Size = scrollSize;
-            chartArea.AxisX.ScrollBar.Enabled = false;
-            chartArea.AxisX.Interval = 1;
-            chartArea.AxisX.Minimum = 0;
-            chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
-            chartArea.AxisX.LabelStyle.Format = "#";
-            chartArea.AxisX.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
             chartArea.CursorX.AutoScroll = true;
+            chartArea.AxisX.ScrollBar.Enabled = false;
+            chartArea.AxisX.Minimum = 0;
+            chartArea.AxisX.LabelStyle.Format = "#";
+            chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
+            chartArea.AxisX.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
+            chartArea.AxisX.ScaleView.Zoomable = true;
+           
         }
         public void ScrollBarInitAll()
         {
@@ -62,20 +79,23 @@ namespace Termie
             ScrollBarInit(ChartRPM.ChartAreas[RPM]);
             ScrollBarInit(ChartPressure.ChartAreas[Pressure]);
         }
-        
+        public void AxisXIntervalSetAll()
+        {
+            AxisXIntervalSet(ChartBreath.ChartAreas[Breath].AxisX);
+            AxisXIntervalSet(ChartRPM.ChartAreas[RPM].AxisX);
+            AxisXIntervalSet(ChartPressure.ChartAreas[Pressure].AxisX);
+        }
         public void AddPoints(RealPacket packet, double ftime)
         {
             ChartBreath.Series[Breath].Points.AddXY(ftime, packet.breath);
             ChartRPM.Series[RRPM].Points.AddXY(ftime, packet.RRPM);
             ChartRPM.Series[LRPM].Points.AddXY(ftime, packet.LRPM);
             ChartPressure.Series[Pressure].Points.AddXY(ftime, packet.pressure);
-
-            //ChartBreath.Series[0].Points.AddXY(Math.Truncate( ftime*10)/10, 0);
-            //ChartBreath.Series[0].Points[ChartBreath.Series[0].Points.Count - 1].IsEmpty = true;
         }
         public void InitializeGraph()
         {
             ScrollBarInitAll();
+            AxisXIntervalSetAll();
         }
         public void ScrollBarShow(ChartArea chartArea)
         {
