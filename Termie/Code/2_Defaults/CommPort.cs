@@ -69,6 +69,7 @@ namespace Termie
             if (!_keepReading)
             {
                 _keepReading = true;
+                //_readThread.SetApartmentState(ApartmentState.STA);
                 _readThread = new Thread(ReadPort);
                 _readThread.Start();
             }

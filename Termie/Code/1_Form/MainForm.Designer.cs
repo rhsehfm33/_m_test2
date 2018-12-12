@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.ColTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBreath = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,10 +53,10 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.IntervalComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnPath = new System.Windows.Forms.Button();
             this.btnLogStop = new System.Windows.Forms.Button();
             this.btnLogStart = new System.Windows.Forms.Button();
             this.LogPathBox = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ChartRPM = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -85,14 +85,14 @@
             // 
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 5F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColTime,
@@ -100,14 +100,14 @@
             this.colPressure,
             this.colRPMLeft,
             this.colRPMRight});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.Location = new System.Drawing.Point(980, 121);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView.Name = "dataGridView";
@@ -217,10 +217,10 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btnPath);
             this.groupBox6.Controls.Add(this.btnLogStop);
             this.groupBox6.Controls.Add(this.btnLogStart);
             this.groupBox6.Controls.Add(this.LogPathBox);
-            this.groupBox6.Controls.Add(this.button5);
             this.groupBox6.Location = new System.Drawing.Point(409, 25);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
@@ -229,6 +229,16 @@
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Data Logging";
+            // 
+            // btnPath
+            // 
+            this.btnPath.Location = new System.Drawing.Point(0, 22);
+            this.btnPath.Name = "btnPath";
+            this.btnPath.Size = new System.Drawing.Size(56, 26);
+            this.btnPath.TabIndex = 7;
+            this.btnPath.Text = "Path";
+            this.btnPath.UseVisualStyleBackColor = true;
+            this.btnPath.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnLogStop
             // 
@@ -259,18 +269,7 @@
             this.LogPathBox.Name = "LogPathBox";
             this.LogPathBox.Size = new System.Drawing.Size(574, 25);
             this.LogPathBox.TabIndex = 0;
-            this.LogPathBox.Text = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(7, 21);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(54, 29);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Path";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.btnLogPath_Click);
+            this.LogPathBox.Text = Settings.Option.LogFilePath;
             // 
             // ResetButton
             // 
@@ -298,26 +297,26 @@
             // 
             // ChartRPM
             // 
-            chartArea1.Name = "RPM";
-            this.ChartRPM.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.ChartRPM.Legends.Add(legend1);
+            chartArea4.Name = "RPM";
+            this.ChartRPM.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.ChartRPM.Legends.Add(legend4);
             this.ChartRPM.Location = new System.Drawing.Point(167, 21);
             this.ChartRPM.Name = "ChartRPM";
             this.ChartRPM.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.ChartRPM.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Red,
         System.Drawing.Color.Blue};
-            series1.ChartArea = "RPM";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "LRPM";
-            series2.ChartArea = "RPM";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "RRPM";
-            this.ChartRPM.Series.Add(series1);
-            this.ChartRPM.Series.Add(series2);
+            series5.ChartArea = "RPM";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Legend = "Legend1";
+            series5.Name = "LRPM";
+            series6.ChartArea = "RPM";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Legend = "Legend1";
+            series6.Name = "RRPM";
+            this.ChartRPM.Series.Add(series5);
+            this.ChartRPM.Series.Add(series6);
             this.ChartRPM.Size = new System.Drawing.Size(776, 154);
             this.ChartRPM.TabIndex = 15;
             this.ChartRPM.Text = "RPMs";
@@ -361,20 +360,20 @@
             // 
             // ChartPressure
             // 
-            chartArea2.Name = "Pressure";
-            this.ChartPressure.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.ChartPressure.Legends.Add(legend2);
+            chartArea5.Name = "Pressure";
+            this.ChartPressure.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.ChartPressure.Legends.Add(legend5);
             this.ChartPressure.Location = new System.Drawing.Point(167, 25);
             this.ChartPressure.Name = "ChartPressure";
             this.ChartPressure.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.ChartPressure.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.Lime};
-            series3.ChartArea = "Pressure";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.Name = "Pressure";
-            this.ChartPressure.Series.Add(series3);
+            series7.ChartArea = "Pressure";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series7.Legend = "Legend1";
+            series7.Name = "Pressure";
+            this.ChartPressure.Series.Add(series7);
             this.ChartPressure.Size = new System.Drawing.Size(776, 143);
             this.ChartPressure.TabIndex = 15;
             this.ChartPressure.Text = "Pressure";
@@ -418,23 +417,23 @@
             // 
             // ChartBreath
             // 
-            chartArea3.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea3.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea3.Name = "Breath";
-            this.ChartBreath.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.ChartBreath.Legends.Add(legend3);
+            chartArea6.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea6.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea6.Name = "Breath";
+            this.ChartBreath.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.ChartBreath.Legends.Add(legend6);
             this.ChartBreath.Location = new System.Drawing.Point(167, 25);
             this.ChartBreath.Name = "ChartBreath";
             this.ChartBreath.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.ChartBreath.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))))};
             this.ChartBreath.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series4.ChartArea = "Breath";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.Name = "Breath";
-            this.ChartBreath.Series.Add(series4);
+            series8.ChartArea = "Breath";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series8.Legend = "Legend1";
+            series8.Name = "Breath";
+            this.ChartBreath.Series.Add(series8);
             this.ChartBreath.Size = new System.Drawing.Size(776, 350);
             this.ChartBreath.TabIndex = 13;
             this.ChartBreath.Text = "Breath";
@@ -503,7 +502,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnLogStart;
         private System.Windows.Forms.TextBox LogPathBox;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.Button btnLogStop;
 
@@ -525,5 +523,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPressure;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRPMLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRPMRight;
+        private System.Windows.Forms.Button btnPath;
     }
 }
