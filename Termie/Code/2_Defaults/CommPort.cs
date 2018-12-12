@@ -29,7 +29,7 @@ namespace Termie
         SerialPort _serialPort;
         Thread _readThread;
         volatile bool _keepReading;
-        volatile bool _bRunning;
+        public static bool bRunning = false;
 
         //begin Singleton pattern
         static readonly CommPort instance = new CommPort();
@@ -45,7 +45,7 @@ namespace Termie
             _serialPort = new SerialPort();
             _readThread = null;
             _keepReading = false;
-            _bRunning = false;
+            bRunning = false;
         }
 
         public static CommPort Instance
@@ -100,7 +100,7 @@ namespace Termie
 
             while (_keepReading)
             {
-                if (_serialPort.IsOpen && _bRunning)
+                if (_serialPort.IsOpen && bRunning)
                 {
                     byte[] remainedBytes = new byte[_serialPort.ReadBufferSize];
                     try
@@ -255,12 +255,12 @@ namespace Termie
 
         public void Button_Click()
         {
-            _bRunning = !_bRunning;
+            bRunning = !bRunning;
         }
 
         public bool IsRunning()
         {
-            return _bRunning;
+            return bRunning;
         }
     }
 }

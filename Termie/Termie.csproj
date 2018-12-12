@@ -79,7 +79,25 @@
     </Compile>
     <Compile Include="Code\2_Defaults\CommPort.cs" />
     <Compile Include="Code\2_Defaults\Packet.cs" />
-    <Compile Include="Code\Graph\MainForm.cs">
+    <Compile Include="Code\Functions\ExcelFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Functions\CommPortFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\OutputData\DataGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\OutputData\Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Measurement Control\DataLogging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Measurement Control\SettingBtn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Measurement Control\RunningControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sample_Design\Form1.cs">
