@@ -23,6 +23,7 @@ namespace Termie
         {
             if (!CommPort.bRunning)
             {
+                InitializeGraph();
                 StartButton.Text = "Pause";
                 CommPort.bRunning = true;
                 _stopWatch.Start();

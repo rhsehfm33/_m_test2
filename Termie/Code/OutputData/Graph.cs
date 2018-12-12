@@ -30,17 +30,17 @@ namespace Termie
         public const int scrollSize = 5;
         public void ScrollBarMove(ChartArea chartArea, double ftime)
         {
-            chartArea.AxisX.Maximum = Math.Ceiling(ftime);
-            chartArea.AxisX.Minimum = chartArea.AxisX.Maximum - scrollSize;
-            chartArea.AxisX.ScaleView.Position = chartArea.AxisX.Minimum;
-            //chartArea.AxisX.IntervalOffset = 0;
-            //chartArea.AxisX.
-            //chartArea.AxisX.IntervalOffset = (int)Math.Ceiling(ftime) + 1;
+            if (ftime < scrollSize)
+                return;
             chartArea.AxisX.RoundAxisValues();
+            chartArea.AxisX.Maximum = Math.Ceiling(ftime);
+            //chartArea.AxisX.Minimum = Math.Ceiling(ftime) - scrollSize;
+            chartArea.AxisX.ScaleView.Position = Math.Ceiling(ftime)- scrollSize;
+            //chartArea.AxisX.IntervalOffset = 0;
+            //chartArea.AxisX.RoundAxisValues();
         }
         public void ScrollBarMoveAll(double ftime)
         {
-         //   ChartBreath
             ScrollBarMove(ChartBreath.ChartAreas[Breath], ftime);
             ScrollBarMove(ChartRPM.ChartAreas[RPM], ftime);
             ScrollBarMove(ChartPressure.ChartAreas[Pressure], ftime);
@@ -48,16 +48,11 @@ namespace Termie
         public void ScrollBarInit(ChartArea chartArea)
         {
             chartArea.AxisX.ScaleView.Size = scrollSize;
-            chartArea.AxisX.ScrollBar.Enabled = true;
+            chartArea.AxisX.ScrollBar.Enabled = false;
             chartArea.AxisX.Interval = 1;
+            chartArea.AxisX.Minimum = 0;
             chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
             chartArea.AxisX.LabelStyle.Format = "#";
-            //chartArea.AxisX.LabelStyle.Format = "ss.000";
-            //chartArea.CursorX.Interval = 1;
-            //chartArea.AxisX.ScaleView.SmallScrollSizeType = DateTimeIntervalType.Seconds;
-            //chartArea.AxisX.ScaleView.SmallScrollSize = 30;
-            //chartArea.AxisX.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
-            //chartArea.AxisX.ScaleView.SmallScrollMinSize = 1;
             chartArea.AxisX.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
             chartArea.CursorX.AutoScroll = true;
         }
