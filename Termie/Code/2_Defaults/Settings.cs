@@ -26,7 +26,7 @@ namespace Termie
         public class Option
         {
             public static bool StayOnTop = false;
-            public static string LogFilePath = Application.StartupPath;
+            public static string LogFilePath = Application.StartupPath +"\\log";
             public static int Interval = 5;
             //public enum AppendType
             //{
