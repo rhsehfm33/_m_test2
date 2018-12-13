@@ -59,8 +59,13 @@ namespace Termie
         /// 
         public void OnDataReceived(RealPacket packet)
         {
+            if (StartButton.Text == "Start")
+            {
+                return;
+            }
             double ftime = _stopWatch.Elapsed.TotalSeconds;
-            ftime = Math.Truncate(ftime * 100) / 100;
+            ftime = Math.Truncate(ftime * 1000) / 1000;
+
             //Handle multi-threading
             if (InvokeRequired)
             {
@@ -68,10 +73,7 @@ namespace Termie
                 return;
             }
 
-            if (StartButton.Text == "Start")
-            {
-                return;
-            }
+            
             DrawGraph(packet,ftime);
             if (_bLogging)
             {

@@ -67,6 +67,7 @@ namespace Termie
             chartArea.CursorX.AutoScroll = true;
             chartArea.AxisX.ScrollBar.Enabled = false;
             chartArea.AxisX.Minimum = 0;
+            chartArea.AxisX.Maximum = 5;
             chartArea.AxisX.LabelStyle.Format = "#";
             chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
             chartArea.AxisX.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
@@ -126,6 +127,8 @@ namespace Termie
         }
         public void DrawGraph(RealPacket packet, double ftime)
         {
+            if (ftime >= 0 && ftime <= 1.1)
+                ;
             AddPoints(packet, ftime);
             ScrollBarMoveAll(ftime);
         }

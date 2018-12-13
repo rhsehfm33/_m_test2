@@ -41,7 +41,8 @@ namespace Termie
         private void StopButton_Click(object sender, EventArgs e)
         {
             _stopWatch.Restart();
-            _stopWatch.Stop();
+            if(!CommPort.bRunning)
+                _stopWatch.Stop();
             ResetGraph();
         }
         #endregion
