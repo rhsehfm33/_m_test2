@@ -71,6 +71,7 @@ namespace Termie
             chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
             chartArea.AxisX.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
             chartArea.AxisX.ScaleView.Zoomable = true;
+            chartArea.AxisX.ScaleView.Position = 0;
            
         }
         public void ScrollBarInitAll()
