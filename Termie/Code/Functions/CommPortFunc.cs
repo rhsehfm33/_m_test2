@@ -77,7 +77,7 @@ namespace Termie
             DrawGraph(packet,ftime);
             if (_bLogging)
             {
-                DrawGrid(packet, ftime);
+                DrawGrid();
             }
         }
         #endregion

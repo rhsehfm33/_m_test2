@@ -44,7 +44,8 @@ namespace Termie
         }
 
         /// <summary>
-        ///   Read the settings from disk. </summary>
+        ///   Read the settings from disk. 
+        ///   </summary>
         public static void Read()
         {
             IniFile ini = new IniFile(Application.StartupPath + "\\Termie.ini");

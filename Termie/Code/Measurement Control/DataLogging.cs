@@ -22,8 +22,10 @@ namespace Termie
         private void btnLogStart_Click(object sender, EventArgs e)
         {
             _bLogging = !_bLogging;
-            if (_bLogging)
+            if (_bLogging) {
                 btnLogStart.Text = "Pause";
+                DrawGrid();
+            }
             else {
                 btnLogStart.Text = "Start";
             }

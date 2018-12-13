@@ -25,11 +25,17 @@ namespace Termie
             {
                 InitializeGraph();
                 StartButton.Text = "Pause";
+
                 CommPort.bRunning = true;
+                if (_bLogging)      //수정 필요
+                {
+                    //btnLogStart.Enabled = false;
+                }
                 _stopWatch.Start();
             }
             else
             {
+                //btnLogStart.Enabled = true;
                 StartButton.Text = "Start";
                 PauseGraph();
                 CommPort.bRunning = false;

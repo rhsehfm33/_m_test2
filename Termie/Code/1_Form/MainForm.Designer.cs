@@ -41,6 +41,11 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ColTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBreath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRPMLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRPMRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SettingButton = new System.Windows.Forms.Button();
@@ -49,7 +54,7 @@
             this.IntervalComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnPath = new System.Windows.Forms.Button();
-            this.btnLogStop = new System.Windows.Forms.Button();
+            this.btnLogSave = new System.Windows.Forms.Button();
             this.btnLogStart = new System.Windows.Forms.Button();
             this.LogPathBox = new System.Windows.Forms.TextBox();
             this.ResetButton = new System.Windows.Forms.Button();
@@ -60,11 +65,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ChartBreath = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ColTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBreath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRPMLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRPMRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -110,6 +110,36 @@
             this.dataGridView.RowTemplate.Height = 23;
             this.dataGridView.Size = new System.Drawing.Size(481, 805);
             this.dataGridView.TabIndex = 15;
+            // 
+            // ColTime
+            // 
+            this.ColTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColTime.HeaderText = "Time";
+            this.ColTime.Name = "ColTime";
+            // 
+            // colBreath
+            // 
+            this.colBreath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colBreath.HeaderText = "Breath";
+            this.colBreath.Name = "colBreath";
+            // 
+            // colPressure
+            // 
+            this.colPressure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPressure.HeaderText = "Pressure";
+            this.colPressure.Name = "colPressure";
+            // 
+            // colRPMLeft
+            // 
+            this.colRPMLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colRPMLeft.HeaderText = "LRPM";
+            this.colRPMLeft.Name = "colRPMLeft";
+            // 
+            // colRPMRight
+            // 
+            this.colRPMRight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colRPMRight.HeaderText = "RRPM";
+            this.colRPMRight.Name = "colRPMRight";
             // 
             // label1
             // 
@@ -184,7 +214,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.btnPath);
-            this.groupBox6.Controls.Add(this.btnLogStop);
+            this.groupBox6.Controls.Add(this.btnLogSave);
             this.groupBox6.Controls.Add(this.btnLogStart);
             this.groupBox6.Controls.Add(this.LogPathBox);
             this.groupBox6.Location = new System.Drawing.Point(409, 25);
@@ -206,16 +236,16 @@
             this.btnPath.UseVisualStyleBackColor = true;
             this.btnPath.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnLogStop
+            // btnLogSave
             // 
-            this.btnLogStop.Location = new System.Drawing.Point(707, 22);
-            this.btnLogStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLogStop.Name = "btnLogStop";
-            this.btnLogStop.Size = new System.Drawing.Size(59, 29);
-            this.btnLogStop.TabIndex = 6;
-            this.btnLogStop.Text = "Stop";
-            this.btnLogStop.UseVisualStyleBackColor = true;
-            this.btnLogStop.Click += new System.EventHandler(this.btnLogStop_Click);
+            this.btnLogSave.Location = new System.Drawing.Point(707, 22);
+            this.btnLogSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLogSave.Name = "btnLogSave";
+            this.btnLogSave.Size = new System.Drawing.Size(59, 29);
+            this.btnLogSave.TabIndex = 6;
+            this.btnLogSave.Text = "Save";
+            this.btnLogSave.UseVisualStyleBackColor = true;
+            this.btnLogSave.Click += new System.EventHandler(this.btnLogStop_Click);
             // 
             // btnLogStart
             // 
@@ -235,7 +265,7 @@
             this.LogPathBox.Name = "LogPathBox";
             this.LogPathBox.Size = new System.Drawing.Size(574, 25);
             this.LogPathBox.TabIndex = 0;
-            this.LogPathBox.Text = Settings.Option.LogFilePath;
+            this.LogPathBox.Text = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\log";
             // 
             // ResetButton
             // 
@@ -373,36 +403,6 @@
             this.panel1.Size = new System.Drawing.Size(951, 805);
             this.panel1.TabIndex = 16;
             // 
-            // ColTime
-            // 
-            this.ColTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColTime.HeaderText = "Time";
-            this.ColTime.Name = "ColTime";
-            // 
-            // colBreath
-            // 
-            this.colBreath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colBreath.HeaderText = "Breath";
-            this.colBreath.Name = "colBreath";
-            // 
-            // colPressure
-            // 
-            this.colPressure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPressure.HeaderText = "Pressure";
-            this.colPressure.Name = "colPressure";
-            // 
-            // colRPMLeft
-            // 
-            this.colRPMLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRPMLeft.HeaderText = "LRPM";
-            this.colRPMLeft.Name = "colRPMLeft";
-            // 
-            // colRPMRight
-            // 
-            this.colRPMRight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRPMRight.HeaderText = "RRPM";
-            this.colRPMRight.Name = "colRPMRight";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -443,7 +443,7 @@
         private System.Windows.Forms.Button btnLogStart;
         private System.Windows.Forms.TextBox LogPathBox;
         private System.Windows.Forms.Button ResetButton;
-        private System.Windows.Forms.Button btnLogStop;
+        private System.Windows.Forms.Button btnLogSave;
 
         private System.Windows.Forms.ComboBox IntervalComboBox;
         private System.Windows.Forms.GroupBox groupBox2;
