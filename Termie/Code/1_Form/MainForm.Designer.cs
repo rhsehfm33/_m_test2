@@ -238,6 +238,7 @@
             // 
             // btnLogSave
             // 
+            this.btnLogSave.Enabled = true;
             this.btnLogSave.Location = new System.Drawing.Point(707, 22);
             this.btnLogSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogSave.Name = "btnLogSave";

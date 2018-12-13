@@ -24,10 +24,12 @@ namespace Termie
             _bLogging = !_bLogging;
             if (_bLogging) {
                 btnLogStart.Text = "Pause";
+                btnLogSave.Enabled = false;
                 DrawGrid();
             }
             else {
                 btnLogStart.Text = "Start";
+                btnLogSave.Enabled = true;
             }
         }
         private void btnLogStop_Click(object sender, EventArgs e)
