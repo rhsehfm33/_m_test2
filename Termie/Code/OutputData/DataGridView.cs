@@ -18,11 +18,16 @@ namespace Termie
 {
     public partial class MainForm : Form
     {
-        public void DrawGrid(RealPacket packet, double ftime)
+        private void DrawGrid(RealPacket packet, double ftime)
         {
             dataGridView.Rows.Add(ftime, packet.breath, packet.pressure, packet.LRPM, packet.RRPM);
             dataGridView.FirstDisplayedScrollingRowIndex = dataGridView.RowCount - 1;
 
+        }
+        private void ResetGrid()
+        {
+            dataGridView.Rows.Clear();
+            dataGridView.Refresh();
         }
     }
 }

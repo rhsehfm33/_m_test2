@@ -44,6 +44,7 @@ namespace Termie
             if(!CommPort.bRunning)
                 _stopWatch.Stop();
             ResetGraph();
+            ResetGrid();
         }
         #endregion
     }
