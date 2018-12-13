@@ -19,16 +19,20 @@ namespace Termie
 {
     public partial class MainForm : Form
     {
-        #region Chart const var
+        #region Constant Variable
+        public const int scrollSize = 5;
+
+        #region Index Constant
         public const string Breath = "Breath";
         public const string RPM = "RPM";
         public const string Pressure = "Pressure";
         public const string LRPM = "LRPM";
         public const string RRPM = "RRPM";
         #endregion
-        #region Graph
 
-        public const int scrollSize = 5;
+        #endregion
+        #region Graph
+        #region ScrollBar Movement
         public void ScrollBarMove(ChartArea chartArea, double ftime)
         {
             if (ftime < scrollSize)
@@ -37,8 +41,6 @@ namespace Termie
             chartArea.AxisX.ScaleView.Position = ftime- scrollSize;
             chartArea.AxisX.RoundAxisValues();
 
-            //chartArea.AxisX.Minimum = Math.Ceiling(ftime) - scrollSize;
-            //chartArea.AxisX.IntervalOffset = 0;
             //chartArea.AxisX.RoundAxisValues();
         }
         public void ScrollBarMoveAll(double ftime)
@@ -47,9 +49,16 @@ namespace Termie
             ScrollBarMove(ChartRPM.ChartAreas[RPM], ftime);
             ScrollBarMove(ChartPressure.ChartAreas[Pressure], ftime);
         }
+        #endregion
+        #region Set Axisx Interval
         public void AxisXIntervalSet(Axis axisX)
         {
+            axisX.Minimum = 0;
+            axisX.Maximum = 5;
+
             axisX.Interval = 1;
+            axisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
+
             axisX.MajorGrid.Enabled = true;
             axisX.MajorGrid.LineColor = Color.DimGray;
             axisX.MajorGrid.LineDashStyle = ChartDashStyle.Solid;
@@ -57,29 +66,7 @@ namespace Termie
             axisX.MinorGrid.Enabled = true;
             axisX.MinorGrid.LineColor = Color.Gray;
             axisX.MinorGrid.LineDashStyle = ChartDashStyle.Dash;
-            //axisX.MinorGrid.IntervalOffset = 0;
             axisX.MinorGrid.Interval = 0.25;
-            
-        }
-        public void ScrollBarInit(ChartArea chartArea)
-        {
-            chartArea.AxisX.ScaleView.Size = scrollSize;
-            chartArea.CursorX.AutoScroll = true;
-            chartArea.AxisX.ScrollBar.Enabled = false;
-            chartArea.AxisX.Minimum = 0;
-            chartArea.AxisX.Maximum = 5;
-            chartArea.AxisX.LabelStyle.Format = "#";
-            chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
-            chartArea.AxisX.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
-            chartArea.AxisX.ScaleView.Zoomable = true;
-            chartArea.AxisX.ScaleView.Position = 0;
-           
-        }
-        public void ScrollBarInitAll()
-        {
-            ScrollBarInit(ChartBreath.ChartAreas[Breath]);
-            ScrollBarInit(ChartRPM.ChartAreas[RPM]);
-            ScrollBarInit(ChartPressure.ChartAreas[Pressure]);
         }
         public void AxisXIntervalSetAll()
         {
@@ -87,6 +74,38 @@ namespace Termie
             AxisXIntervalSet(ChartRPM.ChartAreas[RPM].AxisX);
             AxisXIntervalSet(ChartPressure.ChartAreas[Pressure].AxisX);
         }
+        #endregion
+        #region Set AxisX Scale
+        public void AxisXScaleSet(Axis axis)
+        {
+            axis.ScaleView.Size = scrollSize;
+            axis.ScaleView.SmallScrollMinSizeType = DateTimeIntervalType.Seconds;
+            axis.ScaleView.Zoomable = true;
+            axis.ScaleView.Position = 0;
+
+        }
+        public void AxisXScaleSetAll()
+        {
+            AxisXScaleSet(ChartBreath.ChartAreas[Breath].AxisX);
+            AxisXScaleSet(ChartPressure.ChartAreas[Pressure].AxisX);
+            AxisXScaleSet(ChartRPM.ChartAreas[RPM].AxisX);
+        }
+        #endregion
+        #region ScrollBar Initialize
+        public void ScrollBarInit(ChartArea chartArea)
+        {
+            chartArea.CursorX.AutoScroll = true;
+            chartArea.AxisX.ScrollBar.Enabled = false;
+            chartArea.AxisX.LabelStyle.Format = "#";
+        }
+        public void ScrollBarInitAll()
+        {
+            ScrollBarInit(ChartBreath.ChartAreas[Breath]);
+            ScrollBarInit(ChartRPM.ChartAreas[RPM]);
+            ScrollBarInit(ChartPressure.ChartAreas[Pressure]);
+        }
+        #endregion
+        #region add Value
         public void AddPoints(RealPacket packet, double ftime)
         {
             ChartBreath.Series[Breath].Points.AddXY(ftime, packet.breath);
@@ -94,27 +113,28 @@ namespace Termie
             ChartRPM.Series[LRPM].Points.AddXY(ftime, packet.LRPM);
             ChartPressure.Series[Pressure].Points.AddXY(ftime, packet.pressure);
         }
-        public void InitializeGraph()
-        {
-            ScrollBarInitAll();
-            AxisXIntervalSetAll();
-        }
+        #endregion
+        #region Show Scrollbar
         public void ScrollBarShow(ChartArea chartArea)
         {
-            //chartArea.AxisX.ScrollBar.Size = scrollSize;
             chartArea.AxisX.RoundAxisValues();
             chartArea.AxisX.ScrollBar.Enabled = true;
             chartArea.CursorX.AutoScroll = true;
             chartArea.AxisX.Minimum = 0;
-            //chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
         }
+        #endregion
+        #region Graph Main functions
         public void PauseGraph()
         {
-            //ChartBreath.Series[0].Points.AddY(0);
-            //ChartBreath.Series[0].Points[ChartBreath.Series[0].Points.Count - 1].IsEmpty = true;
             ScrollBarShow(ChartBreath.ChartAreas[Breath]);
             ScrollBarShow(ChartRPM.ChartAreas[RPM]);
             ScrollBarShow(ChartPressure.ChartAreas[Pressure]);
+        }
+
+        public void InitializeGraph()
+        {
+            ScrollBarInitAll();
+            AxisXIntervalSetAll();
         }
         public void ResetGraph()
         {
@@ -127,11 +147,10 @@ namespace Termie
         }
         public void DrawGraph(RealPacket packet, double ftime)
         {
-            if (ftime >= 0 && ftime <= 1.1)
-                ;
             AddPoints(packet, ftime);
             ScrollBarMoveAll(ftime);
         }
+        #endregion
         #endregion
     }
 }
