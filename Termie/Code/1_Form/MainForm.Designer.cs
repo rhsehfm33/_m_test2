@@ -265,7 +265,7 @@
             this.LogPathBox.Name = "LogPathBox";
             this.LogPathBox.Size = new System.Drawing.Size(574, 25);
             this.LogPathBox.TabIndex = 0;
-            this.LogPathBox.Text = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\log";
+            this.LogPathBox.Text = Settings.Option.LogFilePath;
             // 
             // ResetButton
             // 

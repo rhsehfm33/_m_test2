@@ -83,11 +83,11 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(6, 18);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(340, 21);
-            this.textBox8.TabIndex = 0;
-            this.textBox8.Text = "D:\\termie\\Termie\\bin\\Debug";
+            //this.textBox8.Location = new System.Drawing.Point(6, 18);
+            //this.textBox8.Name = "textBox8";
+            //this.textBox8.Size = new System.Drawing.Size(340, 21);
+            //this.textBox8.TabIndex = 0;
+            //this.textBox8.Text = "D:\\termie\\Termie\\bin\\Debug";
             // 
             // groupBox6
             // 
